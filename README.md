@@ -15,4 +15,13 @@ The default size is one megabyte
 #include "arena_alloc.h"
 ```
 
+
 Uses c++ 20 features but c++17 equivalents are availible and commented out if needed.
+
+
+
+Example usage
+```cpp
+allocator<int> alloc;
+std::vector<int, allocator<int>> vec1(100, alloc);
+```
