@@ -1,9 +1,14 @@
 # arena_alloc
 
-Stateful Arena Allocator that can be used with standard containers. Falls back to the standard allocator if it runs out of memory.
-Since allocators can't maintain state it uses a internal static class that keeps track of allocations. 
+Stateful Arena Allocator that can be used with standard containers
 
-to specify the size of the arena define the macro ARENA_ALLOCATOR_SIZE before including the header file. The default size is one megabyte.
+Falls back to the standard allocator if it runs out of memory
+
+Since allocators can't maintain state it uses a internal static class that keeps track of allocations 
+
+To specify the size of the arena define the macro ARENA_ALLOCATOR_SIZE before including the header file
+
+The default size is one megabyte
 
 ```cpp
 #define ARENA_ALLOCATOR_SIZE 1024
