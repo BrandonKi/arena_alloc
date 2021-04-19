@@ -3,7 +3,6 @@
 
 #include <type_traits>
 #include <iostream>
-#include <memory>
 
 #ifndef ARENA_ALLOCATOR_SIZE
 #define ARENA_ALLOCATOR_SIZE 1024
@@ -17,9 +16,9 @@ public:
         current_ = start_;
         end_ = start_ + ARENA_ALLOCATOR_SIZE;
 
-#ifdef ARENA_ALLOC_DEBUG
+    #ifdef ARENA_ALLOC_DEBUG
         std::cout << "new arena allocated\n";
-#endif
+    #endif
     }
 
     // does not free arena on purpose
@@ -88,10 +87,10 @@ public:
 
     constexpr T* allocate(const std::size_t n) noexcept {
         T* result = internal_state.alloc<T>(n * sizeof(T));
-#ifdef ARENA_ALLOC_DEBUG
-        std::cout << '\n' << (n * sizeof(T)) << " bytes allocated\n";
-        std::cout << internal_state.debug() << "/" << ARENA_ALLOCATOR_SIZE << " of arena being used\n";
-#endif
+        #ifdef ARENA_ALLOC_DEBUG
+            std::cout << '\n' << (n * sizeof(T)) << " bytes allocated\n";
+            std::cout << internal_state.debug() << "/" << ARENA_ALLOCATOR_SIZE << " of arena being used\n";
+        #endif
         return result;
     }
 
